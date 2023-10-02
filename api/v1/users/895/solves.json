@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"name": "BLADE RUNNER", "value": 100, "category": "Web", "id": 4}, "id": 2266, "date": "2023-09-30T20:19:43.760847+00:00", "challenge_id": 4, "type": "correct", "team": {"name": "Hive CTF Team", "id": 173}, "user": {"name": "Hans", "id": 895}}], "meta": {"count": 1}}

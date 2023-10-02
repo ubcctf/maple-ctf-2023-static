@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"category": "Rev", "name": "JaVieScript", "value": 100, "id": 9}, "challenge_id": 9, "date": "2023-09-30T13:02:54.217429+00:00", "id": 1548, "user": {"name": "Shynif", "id": 1851}, "type": "correct", "team": {"name": "Galette Cidre CTF", "id": 257}}], "meta": {"count": 1}}

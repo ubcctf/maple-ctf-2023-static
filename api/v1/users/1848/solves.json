@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"name": "cjail", "value": 200, "category": "Misc", "id": 18}, "id": 1722, "date": "2023-09-30T15:02:43.829825+00:00", "challenge_id": 18, "type": "correct", "team": {"name": "TCP1P", "id": 261}, "user": {"name": "msfir", "id": 1848}}], "meta": {"count": 1}}

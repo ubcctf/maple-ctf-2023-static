@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MapleCTF</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/themes/maple/static/img/favicon.ico?d=add7f657"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ronenness.github.io/RPGUI/rpgui/rpgui.min.css"
+    />
+    <link
+      href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/themes/maple/static/css/fonts.min.css?d=add7f657"
+    />
+    <link
+      rel="stylesheet"
+      href="/themes/maple/static/css/main.min.css?d=add7f657"
+    />
+    <link
+      rel="stylesheet"
+      href="/themes/maple/static/css/core.min.css?d=add7f657"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+      
+    <script type="text/javascript">
+      var init = {
+      	'urlRoot': "",
+      	'csrfNonce': "193d69c6cce01fd69ac86b700894a7033867711c4e390accffd933066b60a67f",
+      	'userMode': "teams",
+      	'userId': 0,
+      	'userName': "None",
+      	'userEmail': "None",
+      	'teamId': null,
+      	'teamName': "None",
+      	'start': 1696032000,
+      	'end': 1696204800,
+      	'theme_settings': null
+      }
+    </script>
+    
+  </head>
+  <body class="rpgui-content">
+    <nav class="navbar navbar-expand-lg fixed-top rpgui-container framed-golden" style="z-index: 999" id="navbar-screen">
+    <div class="container" style="max-width: fit-content">
+        <a href="/" class="navbar-brand" style="display: inline-block">
+            
+                MapleCTF
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars"
+                aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 24px;height:24px;color:white"> <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM11 7h2v6h2v2h-2v2h-2v-2H9v-2h2V7zm-2 4v2H7v-2h2zm8 0h-2v2h2v-2z" fill="currentColor"/> </svg>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="base-navbars">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rules">Rules</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sponsors">Sponsors</a>
+                    </li>
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">Users</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/teams">Teams</a>
+                    </li>
+                    
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scoreboard">Scoreboard</a>
+                    </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/challenges">Challenges</a>
+                </li>
+            </ul>
+
+            <hr class="d-sm-flex d-md-flex d-lg-none">
+
+            <ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+                
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">
+                                <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Register">
+                                </span>
+                                <span class="d-sm-block d-md-block d-lg-block">
+                                    Register
+                                </span>
+                            </a>
+                        </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            <span class="d-block" >
+                                Login
+                            </span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main role="main">
+      
+	<div class="container">
+	<style>
+   html,
+   body {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   font-family: "Press Start 2P";
+   }
+   html {
+   background-image: url("https://wallpaper.dog/large/11005245.jpg");
+   background-size: cover;
+   }
+   .scroll-section {
+   position: relative;
+   width: 50vw;
+   height: 100vh;
+   text-align: center;
+   padding: 0 10vw;
+   margin: 0 10vw;
+   margin-top: -20vh;
+   }
+  #special {
+   width: 50vw;
+     padding: 0;
+     margin: 0;                                
+   margin-top: -20vh; 
+  }
+   .scroll-section:last-child {
+   margin-right: 35vw; 
+   }
+   .scroll-container {
+   margin-left: -10vw; 
+   }
+   .scroll-section > p {
+   margin-bottom: 0 !important; 
+   }
+   button > p {
+   margin-bottom: 0 !important; 
+   }
+   .wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   }
+   .block {
+   max-width: 50vw;
+   text-align: center;
+   white-space: normal;
+   }
+   #maple-chan {
+   position: absolute;
+   height: 250px;
+   object-fit: cover;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   }
+   @keyframes MoveUpDown {
+   0%,
+   100% {
+   bottom: 0;
+   }
+   50% {
+   bottom: 15px;
+   }
+   }
+   @media only screen and (min-width: 768px) and (max-width: 1200px) {
+   #maple-chan {
+   height: 20%;
+   }
+   h1 {
+   font-size: 20px !important;
+   line-height: 1.5em;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   }
+   #challenges {
+   display: none;
+   }
+   .scroll-section {
+   width: 100vw;
+   padding: 0 10vw;
+   }
+   .block {
+   max-width: 80vw;
+   max-height: 50vh;
+   overflow-y: scroll;
+   overflow-x: hidden;
+   }
+   #first-block {
+   max-width: 100vw;
+   margin-left: -2.75% !important;
+   overflow-y: hidden;
+   }
+   .scroll-section:last-child {
+   margin-right: 0% !important; 
+   }
+   .block:last-child {
+   margin-right: 0% !important; 
+   }
+   }
+   @media only screen and (max-width: 768px) {
+   #maple-chan {
+   height: 30%;
+   }
+   h1 {
+   font-size: 20px !important;
+   line-height: 1.5em;
+   }
+   #about,
+   #challenges,
+   #countdown {
+   display: none;
+   }
+   .horizontal-scroll {
+   margin-left: 30px; 
+   }
+   .scroll-section, #special {
+   width: 90vw !important;
+   margin: 0 20px !important; 
+   padding: 0 20vw !important;
+     margin-top: -20vh !important;
+   }
+   .block {
+   max-width: 90vw;
+   max-height: 50vh;
+   overflow-y: scroll;
+   overflow-x: hidden;
+   }
+   #first-block {
+   max-width: 120vw;
+   margin-left: -0.5% !important;
+   overflow-y: hidden;
+   }
+   .scroll-section {
+   margin-top: -20vh; 
+   }
+   .scroll-section:first-child {
+   padding-left: 20vw; 
+   }
+   .scroll-section:last-child {
+   margin-right: 10vw; 
+   }
+   .block:last-child {
+   margin-right: 0% !important; 
+   }
+   }
+  
+    #left:before,
+    #right:before,
+    #right:after,
+    #left:after {
+      display: none;
+    }
+
+    #nav-buttons {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    #left,
+    #right {
+      min-width: 5px;
+    }
+
+   @media only screen and (max-height: 667px) {
+      #maple-chan {
+        height: 25%;
+      }
+  }
+  
+    @media only screen and (max-width: 1366px) {
+      #maple-chan {
+        height: 30%;
+      }
+  }
+  .rpgui-button.golden p {
+   margin-top: 16px; 
+  }
+</style>
+<div class="scroll-container bootstrap-off">
+   <div class="scroll-section">
+      <div class="wrapper">
+         <div
+            class="rpgui-container framed block"
+            style="margin-left: max(150px, 2%)"
+            id="first-block"
+            >
+            <h1 style="font-size: 40px">Maple CTF 2023</h1>
+            <div id="countdown">
+              <button
+                class="rpgui-button golden"
+                style="pointer-events: none; min-width: 10px"
+                id="days"
+              >
+                <p>--</p>
+              </button>
+              <p style="display: inline">&nbsp;D&nbsp;</p>
+              <button
+                class="rpgui-button golden"
+                style="pointer-events: none; min-width: 10px"
+                id="hours"
+              >
+                <p>--</p>
+              </button>
+              <p style="display: inline">&nbsp;H&nbsp;</p>
+              <button
+                class="rpgui-button golden"
+                style="pointer-events: none; min-width: 10px"
+                id="minutes"
+              >
+                <p>--</p>
+              </button>
+              <p style="display: inline">&nbsp;M&nbsp;</p>
+              <button
+                class="rpgui-button golden"
+                style="pointer-events: none; min-width: 10px"
+                id="secs"
+              >
+                <p>--</p>
+              </button>
+              <p style="display: inline">&nbsp;S&nbsp;</p>
+            </div>
+            <p id="mobile-countdown" style="margin-top: 10px">Sep. 30th 00:00 UTC – Oct. 2nd 00:00 UTC </p>
+            <p>Hosted by <a href="https://maplebacon.org/">Maple Bacon</a>.</p>
+            <p>Join the <a href="https://discord.gg/YnqKwXuwnP">Discord</a>!</p>
+            <div>
+               <a href="https://ctf.maplebacon.org/register">
+               <button class="rpgui-button">Sign up</button>
+               </a>
+            </div>
+           <p style="margin-top: 10px"> Thank you to our <a href="/sponsors">sponsors</a> – Zellic, Trail of Bits, <br>HackerOne, Offensive Security, Vector35, and GCP!  </p>
+         </div>
+      </div>
+   </div>
+   <div class="scroll-section" id="special" style="
+     width: 50vw;
+     padding: 0;
+     margin: 0;                 
+    margin-top: -20vh;">
+      <div class="wrapper">
+         <div class="rpgui-container framed block">
+            <h1 style="font-size: 40px">Prizes</h1>
+            <p>First place: $1000 USD, 2x Binary Ninja License, OffSec courses</p>
+            <p>Second place: $750 USD, 2x Binary Ninja License, OffSec courses</p>
+            <p>Third place: $500 USD, 1x Binary Ninja License</p>
+            <p>Top five: <a href="/files/6e85739bd7e922bc316c824f533df53a/zellic-swag-min.png">Zellic swag</a>.</p>
+            <p>Writeup prizes: see <a href="https://discord.gg/YnqKwXuwnP">Discord</a>!</p>
+         </div>
+      </div>
+   </div>
+   <div class="scroll-section">
+      <div class="wrapper">
+         <div class="rpgui-container framed block">
+            <h1 style="font-size: 40px">FAQ</h1>
+           <p><b><em>What is a CTF?</em></b></p>
+            <p style="white-space: normal">
+               Capture The Flag competitions are competitions
+               in which players attempt to solve computer security related
+               problems and find strings called "flags".
+            </p>
+           <p><b><em>Is there a team limit for this CTF?</em></b></p>
+            <p style="white-space: normal">
+               No, there is no team limit for this CTF.
+            </p>
+           <p><b><em>Are there prizes?</em></b></p>
+            <p style="white-space: normal">
+               Yes! Check out our landing page for more info on prizes. 
+            </p>
+         </div>
+      </div>
+   </div>
+   <div class="scroll-section">
+      <div class="wrapper">
+         <div class="rpgui-container framed block">
+            <h1 style="font-size: 40px">Sponsors</h1>
+            <p><em>Prize Sponsors:</em></p>
+            <p style="font-size: 20 px; white-space: normal">
+               Zellic | Offensive Security | Vector35 | Trail of Bits | HackerOne
+            </p>
+           <a href="https://www.zellic.io/"><img src="/files/fc537df7d86e3a2509a756c162bccdd4/zellic-logo.png" height=75px></a>
+           <a href="https://www.offsec.com/"><img src="/files/d15aa11acac69fb144d9d99de59514b3/offsec-logo.png" height=90px></a>
+           <a href="https://binary.ninja/"><img src="/files/fb60f700a2e7dcd509ee8f96c4a537cd/binaryninja-logo.png" height=90px></a>
+           <a href="https://www.trailofbits.com/"><img src="/files/bc0601b0fff4f8d03b7a2e66f7164fa2/trailofbits-logo.png" height=100px></a>
+		   <a href="https://www.hackerone.com/"><img src="/files/17c53268a0bc68c829501b28c296afa1/hackerone-logo.png" height=65px></a>
+           <br>
+           <p style="margin-top: 10px"><em>Infra Sponsor:</em></p>
+           <p style="font-size: 20 px; white-space: normal">
+               Google Cloud Platform via <a href="https://goo.gle/ctfsponsorship">goo.gle/ctfsponsorship</a>
+           </p>
+           <a href="https://cloud.google.com/"><img src="/files/5e8f8cb56e3ec4f2ec9eaf284940c738/gcp-logo.png" height=95px></a>
+            <p style="margin-top: 10px"><em>Thank you to our generous sponsors for making this event possible</em>.</p>
+         </div>
+      </div>
+   </div>
+   <div class="scroll-section">
+      <div class="wrapper">
+         <div class="rpgui-container framed block">
+            <h1 style="font-size: 40px">About Us</h1>
+            <p style="white-space: normal">
+               Maple Bacon is the CTF team at the
+               <a href="https://www.ubc.ca" target="_blank" rel="noopener noreferrer"
+                  >University of British Columbia</a
+                  >. Our team was initially formed in February 2019 under the mentorship of
+               <a
+                  href="https://www.robertxiao.ca/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Dr. Robert Xiao.</a
+                  >
+               Our worldwide ranking and history can be found on
+               <a
+                  href="https://ctftime.org/team/73723"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ctftime.org</a
+                  >.
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<div>
+  <img src="/themes/maple/static/img/maplechan.png" id="maple-chan" onmouseover="generateText()">
+</div>
+
+<div id="nav-buttons">
+      <button class="rpgui-button golden" id="left" onclick="scrollToLeft()">
+        <svg
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          style="color: white; width: 24px; height: 24px"
+        >
+          <path
+            d="M20 11v2H8v2H6v-2H4v-2h2V9h2v2h12zM10 7H8v2h2V7zm0 0h2V5h-2v2zm0 10H8v-2h2v2zm0 0h2v2h-2v-2z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button class="rpgui-button golden" id="right" onclick="scrollRight()">
+        <svg
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          style="color: white; width: 24px; height: 24px"
+        >
+          <path
+            d="M4 11v2h12v2h2v-2h2v-2h-2V9h-2v2H4zm10-4h2v2h-2V7zm0 0h-2V5h2v2zm0 10h2v-2h-2v2zm0 0h-2v2h2v-2z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+
+<script src="https://corentinfardeau.github.io/horizontal-scroll/index.js"></script>
+
+<script>
+   var blocks = document.getElementsByClassName("scroll-section");
+   var container = document.getElementsByClassName("scroll-container");
+   var hs = new HorizontalScroll.default({
+    blocks: blocks,
+    container: container,
+    springEffect: 0.8,
+   });
+   
+   const maple = document.getElementById("maple-chan");
+   
+   document.addEventListener("mousewheel", function (event) {
+    if (event.wheelDelta >= 0) {
+      maple.style.transform = "translateX(-50%) scaleX(1)";
+    } else {
+      maple.style.transform = "translateX(-50%) scaleX(-1)";
+    }
+    maple.style.animation = "MoveUpDown 0.5s step-end infinite";
+    setTimeout(() => {
+      maple.style.animation = "";
+    }, 1000);
+   });
+   
+   document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "Down" ||
+      e.key === "ArrowDown" ||
+      e.key === "Right" ||
+      e.key === "ArrowRight"
+    ) {
+      maple.style.transform = "translateX(-50%) scaleX(1)";
+    } else if (
+      e.key === "Up" ||
+      e.key === "ArrowUp" ||
+      e.key === "Left" ||
+      e.key === "ArrowLeft"
+    ) {
+      maple.style.transform = "translateX(-50%) scaleX(-1)";
+    }
+    maple.style.animation = "MoveUpDown 0.5s step-end infinite";
+    setTimeout(() => {
+      maple.style.animation = "";
+    }, 1000);
+   });
+   var START_DATE = new Date(1696032000 * 1000);
+    var x = setInterval(function () {
+      var now = new Date().getTime();
+      var distance = START_DATE - now;
+      var days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(
+        2,
+        "0"
+      );
+      var hours = String(
+        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      ).padStart(2, "0");
+      var minutes = String(
+        Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+      ).padStart(2, "0");
+      var seconds = String(
+        Math.floor((distance % (1000 * 60)) / 1000)
+      ).padStart(2, "0");
+      document.getElementById("days").innerHTML = `<p>${days}</p>`;
+      document.getElementById("hours").innerHTML = `<p>${hours}</p>`;
+      document.getElementById("minutes").innerHTML = `<p>${minutes}</p>`;
+      document.getElementById("secs").innerHTML = `<p>${seconds}</p>`;
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("mobile-countdown").innerHTML =
+          "Currently running, until 5PM PDT October 1st!";
+        document.getElementById("countdown").style.display = "none";
+      }
+    }, 1000);
+  
+  
+    let maxOffset =
+      document.getElementsByClassName("horizontal-scroll")[0].offsetWidth -
+      document.querySelectorAll("main")[0].offsetWidth;
+
+  
+    function scrollToLeft() {
+      hs.vars.scrollTarget = Math.max(hs.vars.scrollTarget - 500, 0);
+      maple.style.transform = "translateX(-50%) scaleX(-1)";
+      maple.style.animation = "MoveUpDown 0.5s step-end infinite";
+      setTimeout(() => {
+        maple.style.animation = "";
+      }, 1000);
+    }
+
+    function scrollRight() {
+      hs.vars.scrollTarget = Math.min(hs.vars.scrollTarget + 500, maxOffset);
+      maple.style.transform = "translateX(-50%) scaleX(1)";
+      maple.style.animation = "MoveUpDown 0.5s step-end infinite";
+      setTimeout(() => {
+        maple.style.animation = "";
+      }, 1000);
+    }
+  
+  function generateText() {
+        const texts = [
+          "Don't give up!",
+          "You can do it!",
+          "Have you asked for help?",
+          "u w u",
+          "Nyaaa!",
+          "The flag is a lie!",
+        ];
+        document.getElementById("maple-chan-text-2").innerHTML =
+          texts[Math.floor(Math.random() * texts.length)];
+      }
+</script>
+<script src="/themes/maple/static/js/rpgui.min.js"></script>
+	</div>
+
+    </main>
+
+    <div id="maple-chan-bounce">
+      <div class="nes-balloon from-right" id="maple-chan-text">...</div>
+      <img src="/themes/maple/static/img/maplechan.png" id="maple-chan-image" onmouseenter="generateText()"/>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <a href="https://ctfd.io" class="text-secondary">
+          <small class="text-muted">Powered by CTFd</small>
+        </a>
+      </div>
+    </footer>
+
+    <script
+      defer
+      src="/themes/maple/static/js/vendor.bundle.min.js?d=add7f657"
+    ></script>
+    <script
+      defer
+      src="/themes/maple/static/js/core.min.js?d=add7f657"
+    ></script>
+    <script
+      defer
+      src="/themes/maple/static/js/helpers.min.js?d=add7f657"
+    ></script>
+
+    
+    <script
+      defer
+      src="/themes/maple/static/js/pages/main.min.js?d=add7f657"
+    ></script>
+       
+
+    <script src="https://ronenness.github.io/RPGUI/rpgui/rpgui.min.js"></script>
+
+    <script>
+      const pathname = window.location.pathname;
+      if (pathname === "/") {
+        document.getElementById("maple-chan-bounce").style.display = "none";
+      }
+
+      document.getElementById("maple-chan-text").style.pointerEvents = "none";
+
+      function generateText() {
+        const texts = [
+          "Don't give up!",
+          "You can do it!",
+          "Have you asked for help?",
+          "u w u",
+          "Nyaaa!",
+          "The flag is a lie!",
+        ];
+        document.getElementById("maple-chan-bounce").classList.add("maple-chan-animate");
+        document.getElementById("maple-chan-text").style.display = "block";
+        document.getElementById("maple-chan-text").innerHTML =
+          texts[Math.floor(Math.random() * texts.length)];
+        setTimeout(() => {
+          document.getElementById("maple-chan-text").style.display = "none";
+        document.getElementById("maple-chan-bounce").classList.remove("maple-chan-animate");
+        }, 5000);
+      }
+    </script>
+
+    
+
+  </body>
+  <style>
+* {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+  </style>
+</html>

@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"name": "JaVieScript", "value": 100, "category": "Rev", "id": 9}, "id": 1100, "date": "2023-09-30T08:06:04.617941+00:00", "challenge_id": 9, "type": "correct", "team": {"name": "pwn_strs", "id": 776}, "user": {"name": "kn1gh7", "id": 1585}}], "meta": {"count": 1}}

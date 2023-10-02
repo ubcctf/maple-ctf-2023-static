@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"name": "Pen and Paper", "value": 100, "category": "Crypto", "id": 23}, "id": 2585, "date": "2023-10-01T05:29:21.867838+00:00", "challenge_id": 23, "type": "correct", "team": {"name": "robot", "id": 772}, "user": {"name": "robot", "id": 1577}}], "meta": {"count": 1}}

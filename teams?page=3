@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MapleCTF</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/themes/maple/static/img/favicon.ico?d=c210532f"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ronenness.github.io/RPGUI/rpgui/rpgui.min.css"
+    />
+    <link
+      href="https://unpkg.com/nes.css@latest/css/nes.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/themes/maple/static/css/fonts.min.css?d=c210532f"
+    />
+    <link
+      rel="stylesheet"
+      href="/themes/maple/static/css/main.min.css?d=c210532f"
+    />
+    <link
+      rel="stylesheet"
+      href="/themes/maple/static/css/core.min.css?d=c210532f"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    
+ 
+    <script type="text/javascript">
+      var init = {
+      	'urlRoot': "",
+      	'csrfNonce': "193d69c6cce01fd69ac86b700894a7033867711c4e390accffd933066b60a67f",
+      	'userMode': "teams",
+      	'userId': 0,
+      	'userName': "None",
+      	'userEmail': "None",
+      	'teamId': null,
+      	'teamName': "None",
+      	'start': 1696032000,
+      	'end': 1696204800,
+      	'theme_settings': null
+      }
+    </script>
+    
+  </head>
+  <body class="rpgui-content">
+    <nav class="navbar navbar-expand-lg fixed-top rpgui-container framed-golden" style="z-index: 999" id="navbar-screen">
+    <div class="container" style="max-width: fit-content">
+        <a href="/" class="navbar-brand" style="display: inline-block">
+            
+                MapleCTF
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars"
+                aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 24px;height:24px;color:white"> <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM11 7h2v6h2v2h-2v2h-2v-2H9v-2h2V7zm-2 4v2H7v-2h2zm8 0h-2v2h2v-2z" fill="currentColor"/> </svg>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="base-navbars">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rules">Rules</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sponsors">Sponsors</a>
+                    </li>
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">Users</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/teams">Teams</a>
+                    </li>
+                    
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scoreboard">Scoreboard</a>
+                    </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/challenges">Challenges</a>
+                </li>
+            </ul>
+
+            <hr class="d-sm-flex d-md-flex d-lg-none">
+
+            <ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+                
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">
+                                <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Register">
+                                </span>
+                                <span class="d-sm-block d-md-block d-lg-block">
+                                    Register
+                                </span>
+                            </a>
+                        </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">
+                            <span class="d-block" >
+                                Login
+                            </span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main role="main">
+      
+<div class="d-flex justify-content-center">
+<div class="rpgui-container framed" style="width: max(800px, 80%);max-height: 70%; overflow-y: scroll;overflow-x:hidden;max-width: 100%">
+    <h1>Teams</h1>
+	<div class="row">
+		<div class="col-md-12">
+			
+
+			
+            <div class="w-100">
+                <form method="GET" class="d-flex align-items-center" style="margin: 0 auto">
+                    <div style="width: 20%; margin-right: 10px" id="team-dropdown">
+                        <select class="rpgui-dropdown" id="field" name="field" required><option selected value="name">Name</option><option value="affiliation">Affiliation</option><option value="website">Website</option></select>
+                    </div>
+                    <input id="q" name="q" placeholder="Search for matching teams" required style="width: 60%; height: 45px;flex-grow: 1;" type="text" value="">
+                    <div style="display: block; margin-left: 20px; margin-right: 15px;">
+                        <button type="submit" class="rpgui-button golden">
+                            <!--<i class="fas fa-search" aria-hidden="true"></i>-->
+                            <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"style="height: 36px; width: 36px; padding-top: 12px;color:white"> <path d="M6 2h8v2H6V2zM4 6V4h2v2H4zm0 8H2V6h2v8zm2 2H4v-2h2v2zm8 0v2H6v-2h8zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm0-8h2v8h-2V6zm0 0V4h-2v2h2z" fill="currentColor" /> </svg></button>
+                    </div>
+                </form>
+            </div>
+			
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+            <div class="col-md-12">
+			<table class="table table-striped" style="table-layout:fixed">
+				<thead>
+					<tr>
+						<td><b>Team</b></td>
+						<td><b>Website</b></td>
+						<td class="d-none d-md-table-cell d-lg-table-cell"><b>Affiliation</b></td>
+						<td class="d-none d-md-table-cell d-lg-table-cell"><b>Country</b></td>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/105">Alone_sigma</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/106">0xECE</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/107">Gray Chameleons</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/108">VoltSec</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/109">bobmc</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/110">Foothill</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/111">Samfaina</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/112">RandomCZ</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/113">khoukhou</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/114">Soarin&#39; Cyber</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/115">NoWayPass</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/116">ybyyoussefby@gmail.com</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/117">mikoan</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/118">UtopianDr3amerz</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/119">PFS</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/120">Beers&amp;Hacks</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/121">NJ1T_H1ghland3r5</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/122">Shell We Hack?</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/123">N4t10n</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/124">pl4nt</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/126">LamDyoMong</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/127">Triglyceride</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/128">WUZKITTEN</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/129">kkkkkkk</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/130">GeprekSec</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/131">pymi</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/132">WCSC</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/133">ch11l</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/134">Gondsmen</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/135">HackFused</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/136">farm</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/137">shybug</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/138">ChillJade</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/139">Cyber4</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/140">yuh</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/141">Lonely&amp;Sad</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/142">Sh@d0Warri0r</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/143">2$ob</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/144">Hackẻ Lỏd</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/145">|3r0th3rcc</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/146">Wolverine</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/147">0rr0rs</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/148">yes</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/149">0nePadding</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/150">RainbowRabbit</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/151">P01TERGEIST</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/152">Eipgam</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/153">shensir</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/154">crypto111</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+						
+							<a href="/teams/155">daerk_matter</a>
+						
+						
+						</td>
+						<td class="text-center" style="width: 10px;">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							
+						</td>
+						<td class="d-none d-md-table-cell d-lg-table-cell">
+							<span>
+								
+							</span>
+						</td>
+					</tr>
+				
+				</tbody>
+			</table>
+            </div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="text-center">Page
+				<br>
+				
+				<a href="/teams?page=2">&lt;&lt;&lt;</a>
+				
+				<select class="page-select">
+					
+					<option >1</option>
+					
+					<option >2</option>
+					
+					<option selected>3</option>
+					
+					<option >4</option>
+					
+					<option >5</option>
+					
+					<option >6</option>
+					
+					<option >7</option>
+					
+					<option >8</option>
+					
+					<option >9</option>
+					
+					<option >10</option>
+					
+					<option >11</option>
+					
+					<option >12</option>
+					
+					<option >13</option>
+					
+					<option >14</option>
+					
+					<option >15</option>
+					
+					<option >16</option>
+					
+					<option >17</option>
+					
+					<option >18</option>
+					
+					<option >19</option>
+					
+					<option >20</option>
+					
+					<option >21</option>
+					
+					<option >22</option>
+					
+					<option >23</option>
+					
+					<option >24</option>
+					
+					<option >25</option>
+					
+					<option >26</option>
+					
+				</select>
+				
+				<a href="/teams?page=4">&gt;&gt;&gt;</a>
+				
+			</div>
+		</div>
+	</div>
+	
+</div>
+</div>
+
+    </main>
+
+    <div id="maple-chan-bounce">
+      <div class="nes-balloon from-right" id="maple-chan-text">...</div>
+      <img src="/themes/maple/static/img/maplechan.png" id="maple-chan-image" onmouseenter="generateText()"/>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <a href="https://ctfd.io" class="text-secondary">
+          <small class="text-muted">Powered by CTFd</small>
+        </a>
+      </div>
+    </footer>
+
+    <script
+      defer
+      src="/themes/maple/static/js/vendor.bundle.min.js?d=c210532f"
+    ></script>
+    <script
+      defer
+      src="/themes/maple/static/js/core.min.js?d=c210532f"
+    ></script>
+    <script
+      defer
+      src="/themes/maple/static/js/helpers.min.js?d=c210532f"
+    ></script>
+
+    
+    <script
+      defer
+      src="/themes/maple/static/js/pages/main.min.js?d=c210532f"
+    ></script>
+     
+ 
+
+    <script src="https://ronenness.github.io/RPGUI/rpgui/rpgui.min.js"></script>
+
+    <script>
+      const pathname = window.location.pathname;
+      if (pathname === "/") {
+        document.getElementById("maple-chan-bounce").style.display = "none";
+      }
+
+      document.getElementById("maple-chan-text").style.pointerEvents = "none";
+
+      function generateText() {
+        const texts = [
+          "Don't give up!",
+          "You can do it!",
+          "Have you asked for help?",
+          "u w u",
+          "Nyaaa!",
+          "The flag is a lie!",
+        ];
+        document.getElementById("maple-chan-bounce").classList.add("maple-chan-animate");
+        document.getElementById("maple-chan-text").style.display = "block";
+        document.getElementById("maple-chan-text").innerHTML =
+          texts[Math.floor(Math.random() * texts.length)];
+        setTimeout(() => {
+          document.getElementById("maple-chan-text").style.display = "none";
+        document.getElementById("maple-chan-bounce").classList.remove("maple-chan-animate");
+        }, 5000);
+      }
+    </script>
+
+    
+
+  </body>
+  <style>
+* {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+  </style>
+</html>

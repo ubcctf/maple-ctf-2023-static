@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"name": "BLADE RUNNER", "value": 100, "category": "Web", "id": 4}, "id": 1576, "date": "2023-09-30T13:15:23.680714+00:00", "challenge_id": 4, "type": "correct", "team": {"name": "Pwn's Grin", "id": 42}, "user": {"name": "calloc134", "id": 64}}], "meta": {"count": 1}}

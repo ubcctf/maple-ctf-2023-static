@@ -1,0 +1,1 @@
+{"success": true, "data": [{"challenge": {"name": "lost-in-space", "value": 456, "category": "Pwn", "id": 38}, "id": 3061, "date": "2023-10-01T18:17:16.170014+00:00", "challenge_id": 38, "type": "correct", "team": {"name": "\ud83e\udd2c\ud83c\uddeb\ud83c\uddf7\ud83d\udef9\ud83d\udc3b", "id": 353}, "user": {"name": "CyberTed", "id": 1387}}], "meta": {"count": 1}}
